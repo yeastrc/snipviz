@@ -1,0 +1,67 @@
+
+The SNP viewer is written in Javascript.
+
+The SNP viewer can be instantiated in multiple divs on the same page.
+
+
+The minimum files/components to use the SNP viewer are in the folder "SNP_Viewer_components".
+
+jquery-ui is used for draggable( ) function.
+
+
+**  Creating a SNP viewer:
+
+
+The call to the SNP viewer core create is:
+
+	SNPViewer.createSNPViewer( /* rootDivId */ "rootDivId" ,
+                               /* requestParams */ { newick: "", sequences: {   "DBVPG6765":"ATGG"  }, requestType: SNPViewer.getRequestTypeDNA(), requestTypeLabel: "bases"; },
+                               /* configParams */  {  },
+                               /* callbackFunctions */  { successfullyLoadedCallback: function() {  }, failToLoadCallBack: function() {  } }  );
+
+
+	An example is in simple_sample_webapp\js\snp_viewer_loader_data_object_provided.js
+
+
+     **   Explanation of parameters:
+
+
+    rootDivId: The first parameter.  A string that is the id of the container div to insert the SNP viewer in.
+
+
+	requestParams:
+
+		newick:  The clustering information for the strains.
+
+		sequences:  The sequences for the strains.  The strain names are the property names and the sequences are the values.
+
+		requestType:  Must either SNPViewer.getRequestTypeDNA() or SNPViewer.getRequestTypeProtein().
+						The choice drives formatting and how the values are compared to generate the scores for highlighting.
+
+		requestTypeLabel: A string used as a label within the SNP viewer.
+
+	configParams:   Unused
+
+	callbackFunctions:
+
+		successfullyLoadedCallback: a function that is called when the SNP viewer is successfully created.
+
+		failToLoadCallBack: a function that is called if the SNP viewer has errors while creating the SNP viewer.
+
+
+**  Removing the SNP viewer
+
+The call to remove the SNP viewer is:
+
+	SNPViewer.deleteSNPViewerFromRootDivId( /* rootDivId */ "rootDivId"   );
+
+If the enclosing div is removed without using the provided function ( or the jQuery function empty()  ),
+the SNP viewer data and registered handlers may remain in memory.
+
+The SNP viewer is removed automatically if the user navigates to a different page.
+
+
+
+To get a quick sample of the SNP viewer, go into the
+folder simple_sample_webapp and open snp_viewer.html in any browser.
+

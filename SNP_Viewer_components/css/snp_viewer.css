@@ -1,0 +1,621 @@
+
+/*   snp_viewer.css
+
+   This contains class names that were copied from the jQuery UI css file.
+
+   Warning:  These class names will collide with the jQuery UI css file if that file is also included on the same page.
+
+   Warning:  Anywhere there is "margin: 0 0 0 0;", that cannot be changed without breaking alignment/wrapping functionality.
+             Adding margin in other places may or may not break alignment.
+
+
+   Warning:  The path to the images may need to change.  Search for "background-image:url(".
+
+
+*/
+
+
+/*   !!! This is required:   Put what to display in the "contents" definitions with no positioning attributes.
+                             Do include any padding, margins, or borders.
+*/
+
+
+
+.nav-arrows-container {
+
+	clear: both;
+}
+
+
+
+
+/*  scroll-arrow-box  Must be the same size as the arrow image  */
+
+
+.scroll-arrow-box {
+
+	padding: 0px;
+	margin: 0px;
+
+	margin-top: 10px;  /* distance of arrows from sequence block  */
+
+	width: 42px;
+	height: 21px;
+}
+
+/*  arrows enabled  */
+
+.left-scroll-arrow-contents {
+
+	background-image:url('../images/arrow_left_red.png');
+	cursor: pointer;
+}
+
+.right-scroll-arrow-contents {
+
+	background-image:url('../images/arrow_right_red.png');
+	cursor: pointer;
+
+}
+
+/*  arrows on Hover  */
+
+.left-scroll-arrow-contents:hover {
+
+	background-image:url('../images/arrow_left_red_active.png');
+	cursor: pointer;
+
+}
+
+
+.right-scroll-arrow-contents:hover {
+
+	background-image:url('../images/arrow_right_red_active.png');
+	cursor: pointer;
+
+}
+
+/*  arrows disabled  */
+
+.left-scroll-arrow-contents-disabled {
+
+	background-image:url('../images/arrow_left_gray.png');
+}
+
+
+.right-scroll-arrow-contents-disabled {
+
+	background-image:url('../images/arrow_right_gray.png');
+}
+
+
+div.left-scroll-arrow-position {
+
+	float: left;
+}
+
+
+div.right-scroll-arrow-position {
+
+	float: right;
+}
+
+
+
+
+
+
+
+div.StrainsDendrogramBlock {
+	position: relative;
+	float: left;
+	margin-left: 10px;
+}
+
+div.DendrogramBlock {
+
+	position: relative;
+	float: left;
+}
+
+div.strain-block {
+	position: relative;
+	float: left;
+}
+
+div.sequence-block {
+	position: relative;
+	float: left;
+	margin: 0 0 0 0;
+}
+
+div.sequence-style, .strain-style {
+	font-family: 'Courier New', monospace;
+	font-size: 10pt;
+	white-space: nowrap;
+}
+
+div.strain {
+
+	background-color: white;
+	padding-right: 10px;
+	cursor: pointer;
+}
+
+div.strain:hover {
+
+	background-color: #F08080; /* LightCoral  */
+}
+
+
+div.strain-selected {
+
+	color: white;
+	background-color: black;
+}
+
+div.strain-selected:hover {
+
+	color: white;
+	background-color: #8B0000; /* darkred */
+}
+
+
+div.StrainsDendrogram {
+	position: relative;
+}
+
+div.barchart {
+	white-space: nowrap;
+	position: relative;
+	height: 35px;
+}
+
+/* "bar" = an individual bar directly above the sequences.  "seq-letter" = an individual letter in a sequence */
+div.bar, .seq-letter {
+	position: relative;
+	float: left;
+	text-align: center;
+	background-color: white;
+}
+
+div.bar-protein, .seq-letter-protein {
+
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+div.bar-dna, .seq-letter-dna {
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+/* For the DNA, this is the size of the break between the Codons ( groups of 3 letters )  */
+div.bar-dna-codon-break, .seq-letter-dna-codon-break {
+	width: 9px;
+}
+
+
+div.sequence-group  div.seq-letter-dna-codon-break-strain-selected {
+
+	background-color: black;
+}
+
+
+div.seq-letter {
+	font-weight: bold;
+}
+
+
+
+/*  dna colors  */
+
+div.seq-letter-dna-A {
+
+	color: 	#00A000;  /* green  */
+}
+
+div.seq-letter-dna-T {
+
+	color: 	#A00000; /* red  */
+}
+
+div.seq-letter-dna-G {
+
+	color: 	#000000; /* black  */
+}
+
+div.seq-letter-dna-C {
+
+	color: 	#0000A0; /* blue  */
+}
+
+
+
+/*  dna colors when strain selected */
+
+div.sequence-group div.seq-letter-strain-selected-dna-A {
+
+	color: white;
+	background-color: 	#00A000;  /* green  */
+}
+
+div.sequence-group  div.seq-letter-strain-selected-dna-T {
+
+	color: white;
+	background-color: 	#A00000; /* red  */
+}
+
+div.sequence-group  div.seq-letter-strain-selected-dna-G {
+
+	color: white;
+	background-color: 	#000000; /* black  */
+}
+
+div.sequence-group  div.seq-letter-strain-selected-dna-C {
+
+	color: white;
+	background-color: 	#0000A0; /* blue  */
+}
+
+
+
+/*  protein letters  */
+
+		/*  colored blue  */
+
+div.seq-letter-protein-A {
+
+	color: 	blue; /* blue  */
+}
+div.seq-letter-protein-G {
+
+	color: 	blue; /* blue  */
+}
+
+div.seq-letter-protein-I {
+
+	color: 	blue; /* blue  */
+}
+
+div.seq-letter-protein-L {
+
+	color: 	blue; /* blue  */
+}
+div.seq-letter-protein-P {
+
+	color: 	blue; /* blue  */
+}
+
+div.seq-letter-protein-V {
+
+	color: 	blue; /* blue  */
+}
+
+
+		/*  colored red  */
+
+div.seq-letter-protein-F {
+
+	color: 	#990033; /* red  */
+}
+div.seq-letter-protein-Y {
+
+	color: 	#990033; /* red  */
+}
+div.seq-letter-protein-W {
+
+	color: 	#990033; /* red  */
+}
+
+
+		/*  colored green  */
+
+div.seq-letter-protein-D {
+
+	color: 	green /* green  */
+}
+div.seq-letter-protein-E {
+
+	color: 	green /* green  */
+}
+
+div.seq-letter-protein-N {
+
+	color: 	green /* green  */
+}
+div.seq-letter-protein-Q {
+
+	color: 	green /* green  */
+}
+div.seq-letter-protein-R {
+
+	color: 	green /* green  */
+}
+div.seq-letter-protein-H {
+
+	color: 	green /* green  */
+}
+div.seq-letter-protein-S {
+
+	color: 	green /* green  */
+}
+div.seq-letter-protein-T {
+
+	color: 	green /* green  */
+}
+div.seq-letter-protein-K {
+
+	color: 	green /* green  */
+}
+
+
+
+
+		/*  colored yellow  */
+
+div.seq-letter-protein-C {
+
+	color: 	#A9A900 /* yellow  */
+}
+div.seq-letter-protein-M {
+
+	color: 	#929200 /* yellow  */
+}
+
+
+/* ************  */
+
+
+/*  protein colors when strain selected */
+
+
+
+		/*  colored blue  */
+
+div.sequence-group div.seq-letter-strain-selected-protein-A {
+
+	color: white;
+	background-color: 	blue; /* blue  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-G {
+
+	color: white;
+	background-color: 	blue; /* blue  */
+}
+
+div.sequence-group div.seq-letter-strain-selected-protein-I {
+
+	color: white;
+	background-color: 	blue; /* blue  */
+}
+
+div.sequence-group div.seq-letter-strain-selected-protein-L {
+
+	color: white;
+	background-color: 	blue; /* blue  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-P {
+
+	color: white;
+	background-color: 	blue; /* blue  */
+}
+
+div.sequence-group div.seq-letter-strain-selected-protein-V {
+
+	color: white;
+	background-color: 	blue; /* blue  */
+}
+
+
+		/*  colored red  */
+
+div.sequence-group div.seq-letter-strain-selected-protein-F {
+
+	color: white;
+	background-color: 	#990033; /* red  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-Y {
+
+	color: white;
+	background-color: 	#990033; /* red  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-W {
+
+	color: white;
+	background-color: 	#990033; /* red  */
+}
+
+
+		/*  colored green  */
+
+div.sequence-group div.seq-letter-strain-selected-protein-D {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-E {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+
+div.sequence-group div.seq-letter-strain-selected-protein-N {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-Q {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-R {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-H {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-S {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-T {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-K {
+
+	color: white;
+	background-color: 	green /* green  */
+}
+
+
+
+
+		/*  colored yellow  */
+
+div.sequence-group div.seq-letter-strain-selected-protein-C {
+
+	color: white;
+	background-color: 	#A9A900 /* yellow  */
+}
+div.sequence-group div.seq-letter-strain-selected-protein-M {
+
+	color: white;
+	background-color: 	#929200 /* yellow  */
+}
+
+
+
+
+
+/* ---------------------------------  */
+
+/*  a full sequence */
+div.sequence-group {
+	clear: both;
+}
+
+div.bar-color-where-differences {
+	background-color: lightblue;
+}
+
+div.sequence-color-where-differences {
+	background-color: lightblue;
+}
+
+div.sequence-group  div.sequence-color-where-differences-strain-selected {
+	color: lightblue;
+}
+
+
+div.sequenceDraggableBoundingBox {
+		position: relative;
+		width: 900px;
+		height: 29px;
+		padding: 0px;
+		margin: 0 0 0 0;
+	}
+
+
+    .upperBarChartClickable {
+    	position: absolute;
+    	width: 320px;
+    	left:0px;
+    	top:0px;
+    	height: 28px;
+    	margin: 0px 0px 0px 0px;
+    	z-index: 4;
+    	cursor: pointer;
+    }
+
+
+
+    .upperBarChartClickableBorder {
+
+    	border-style:solid;
+		border-width:1px;
+		border-color: grey;
+
+
+    }
+
+    .upperBarChart {
+    	position:absolute;
+    	left:1px;
+    	top:2px;
+    	height: 27px;
+    	margin: 0 0px 0px 0;
+    	z-index: 2;
+    }
+
+    .upperBarChartSelector {
+
+    	position: absolute !important; /* "position: absolute !important;" <-- jQuery draggable hack for chrome and safari  */
+    	top: -4px;
+    	width: 11px;
+    	height: 33px;
+    	border-style: dotted;
+    	border-width:2px;
+    	border-color:black;
+    	 z-index: 5;
+		cursor: move;
+    }
+
+    .upperBarChartDraggableImage {
+    	position: absolute;
+    	width: 32px;  /* resized by Javascript  */
+    	left:0px;
+    	top:0px;
+    	height: 33px;  /* height needs to match  ".upperBarChartSelector" */
+    	margin: 0px 0px 0px 0px;
+    	z-index:4;
+    }
+
+div.upperBarChartEntry {
+		position: relative;
+		float:left;
+		width:4px;
+		height: 25px;
+		margin-top: 2px;
+		z-index: 1;
+	}
+
+div.upperBarChartEntry-Color {
+		background-color: red;
+	}
+
+div.starting-sequence-position {
+
+		position: relative;
+		float: left;
+		margin-bottom: 3px;
+	}
+
+div.ending-sequence-position {
+
+		position: relative;
+		float: right;
+		margin-bottom: 3px;
+	}
+
+
+
+	/* This is the number displayed under the slider box showing the current position */
+div.currPosNumOnUpprBar {
+		position: absolute;
+		top: 34px;  /* must be adjusted if the height of the slider box is adjusted */
+
+	}
+
+
+
+
+
