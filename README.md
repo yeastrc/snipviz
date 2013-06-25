@@ -1,2 +1,3 @@
 snipviz
 =======
+A SNP Visualizer
