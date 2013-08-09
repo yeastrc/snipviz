@@ -6,7 +6,7 @@ Advanced Snip Viz Items
     a call back function can be created and passed to the Snip Viz creation function.
     That function will be called when the Snip Viz has been successfully created.
 
-	An example of this is 7.retrieve_fasta_sequences_from_server_and_call_backs/snip_viz_fasta_only.html
+	An example of this is 5.retrieve_fasta_sequences_from_server_and_call_backs/snip_viz_fasta_only.html
 
 
 2.	If the Snip Viz (or the div it is created in) needs to be removed from the page with
