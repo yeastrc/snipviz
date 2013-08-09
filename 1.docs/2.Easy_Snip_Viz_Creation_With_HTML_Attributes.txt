@@ -1,0 +1,63 @@
+
+If you have a fasta file and possibly a newick file on a web server, creating a Snip Viz on the page is very easy.
+
+Using custom attributes in the HTML to specify the location(s) of the file(s)
+the following is put in the HTML:
+
+ WARNING:  This div and it's parents cannot be hidden with "display: none;" when the page loads
+
+For fasta and newick:
+
+<div class="snp-viewer-create-here" style="width: 1000px;"
+		snp-viewer-dna-fasta-file="fasta_files/gene1_dna.fa"
+		snp-viewer-dna-newick-file="newick_files/gene1.newick"
+		snp-viewer-protein-fasta-file="fasta_files/gene1_protein.fa"
+		snp-viewer-protein-newick-file="newick_files/gene1.newick"
+		></div>
+
+For fasta:
+
+<div class="snp-viewer-create-here" style="width: 1000px;"
+		snp-viewer-dna-fasta-file="fasta_files/gene1_dna.fa"
+		snp-viewer-dna-newick-file=""
+		snp-viewer-protein-fasta-file="fasta_files/gene1_protein.fa"
+		snp-viewer-protein-newick-file=""
+		></div>
+
+
+
+At the top of the HTML in the "<head>" section the following is needed:
+
+
+	 <link REL="stylesheet" TYPE="text/css" HREF="../Snip_Viz_components/css/snp_viewer.css">
+
+
+
+At the bottom of the HTML before the "</body>" tag the folowing is needed:
+
+	<script type="text/javascript" src="../Snip_Viz_components/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../Snip_Viz_components/js/jquery-ui-1.8.20.custom.min.js"></script>
+
+
+	<script type="text/javascript" src="../Snip_Viz_components/js/wz_jsgraphics.js" ></script >
+
+	<script type="text/javascript" src="../Snip_Viz_components/js/wz_tooltip/wz_tooltip.js"></script>
+
+
+
+	<!-- actual SNP viewer  -->
+	<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_main.js"></script >
+
+	<!-- Javascript to set up the SNP viewer  -->
+	<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_loader_data_object_provided.js"></script >
+
+
+	<!-- Javascript to be called from the script in "../Snip_Viz_components/js/snp_viewer_very_simple_loader.js" and
+			then calls the script in "../Snip_Viz_components/js/snp_viewer_get_fasta_newick_data_external_file.js"  -->
+	<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_get_fasta_newick_data_external_file.js"></script >
+
+
+	<!-- Javascript to locate marked "div"s and create SNP viewers in them
+			by calling the script in "../Snip_Viz_components/js/snp_viewer_loader_data_object_provided.js"  -->
+	<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_HTML_config_loader.js"></script >
+

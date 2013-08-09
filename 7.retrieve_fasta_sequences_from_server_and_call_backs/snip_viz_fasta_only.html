@@ -1,0 +1,219 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<!-- The DOCTYPE is required to make this work in Internet Explorer  -->
+
+<head>
+<title>SNP: fasta_only_from_server - snp_viewer_fasta_only.html</title>
+
+
+ <link REL="stylesheet" TYPE="text/css" HREF="../Snip_Viz_components/css/snp_viewer.css">
+
+</head>
+<body  style="" >
+
+
+
+<br/>
+<br/>
+
+
+
+
+
+<script type="text/javascript" src="../Snip_Viz_components/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../Snip_Viz_components/js/jquery-ui-1.8.20.custom.min.js"></script>
+
+
+<script type="text/javascript" src="../Snip_Viz_components/js/wz_jsgraphics.js" ></script >
+
+<script type="text/javascript" src="../Snip_Viz_components/js/wz_tooltip/wz_tooltip.js"></script>
+
+
+
+<!-- actual SNP viewer  -->
+<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_main.js"></script >
+
+<!-- Javascript to set up the SNP viewer  -->
+<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_loader_data_object_and_callbacks_provided.js"></script >
+
+
+<!-- Javascript to be called from the script on the page, gets the data and
+		then calls the script in "../Snip_Viz_components/js/snp_viewer_loader_data_object_provided.js"  -->
+<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_get_fasta_newick_data_external_file.js"></script >
+
+
+
+<script type="text/javascript" >
+//<!--
+
+$(document).ready(function(){
+
+
+	//  First, Error if the page was loaded directly from the file system
+
+	var protocol =  window.location.protocol;
+
+//		protocol: "file:" // When loaded directly from a file
+
+	if ( protocol === "file:" ) {
+		$("#main-block").hide();
+		$("#page-loaded-from-file-system-error").show();
+
+
+		$("#snp-viewer-loading-message" ).hide();
+
+		alert("This script must be run from a web server.  It is unable to read the newick and fasta files from the local filesystem.  This script will now exit.");
+
+		throw "Cannot run this script directly from a file";
+	}
+
+	//////////////////////////////
+
+
+	///////////    Start setup for creating the Snip Viz
+
+
+	//  Specify the fasta file to load
+
+	var inputFilenames = { fastaFilename: "fasta_files/gene1.fa" };
+
+
+
+	//////////
+
+	//  Create functions that will be called for various conditions
+	//  of creating the Snip Viz
+
+
+	//  A function that will be called when the Snip Viz has been successfully created
+
+	var successfullyLoadedCallback = function( ) {
+
+		$("#snp-viewer-loading-message" ).hide();
+
+
+		$("#snp-viewer" ).show();
+
+	}
+
+	//  A function that will be called when the Snip Viz fails to be created
+
+	var failToLoadCallBack = function( ) {
+
+		$("#snp-viewer-loading-message" ).hide();
+
+		$("#snp-viewer-failed-to-load" ).show();
+		$("#snp-viewer" ).hide();
+	}
+
+	//  A function that will be called when the Snip Viz does not find any data
+
+	var noDataCallBack = function( ) {
+
+		$("#snp-viewer-loading-message" ).hide();
+
+		$("#snp-viewer-no-data" ).show();
+		$("#snp-viewer" ).hide();
+	}
+
+//	alert("Before call to getDataCreateSNPViewer");
+
+	try {
+
+		//  Make the call to create the Snip Viz
+
+		//  Set "delayBeforeLoad" to zero for no delay if need code after this to run after the Snip Viz has been created.
+		//  There is a risk that in IE8 it won't load.
+
+		getDataCreateSNPViewer( { rootDivId: "snp-viewer",
+								genomeClustering: false,
+								requestType: SNPViewer.getRequestTypeDNA() /* requestType */,
+								successfullyLoadedCallback: function() {
+									successfullyLoadedCallback( );
+
+								},
+								failToLoadCallBack: function() { failToLoadCallBack();  },
+								noDataCallBack: function() { noDataCallBack( );  },
+								delayBeforeLoad: 10 },
+								inputFilenames );
+
+
+	} catch ( t ) {
+
+		// if delayBeforeLoad > 0, most of the code inside the function called runs inside a "setTimeout( )"
+		// so most exceptions will be caught inside that and never make it here
+
+
+		var stackTrace = t.stack;
+
+		failToLoadCallBack( );
+
+		throw t;
+	}
+
+
+//	alert("After call to getDataCreateSNPViewer");
+
+
+});
+
+//-->
+</script>
+
+<div id="main-block" >
+
+<h1>Snip Viz</h1>
+
+<h2>Snip Viz DNA</h2>
+
+<div id="snp-viewer-failed-to-load" style="display: none; " >
+
+  <h2>The Snip Viz has failed to load</h2>
+
+</div>
+
+<div id="snp-viewer-no-data" style="display: none; " >
+
+  <h2>No Data for the Snip Viz</h2>
+
+</div>
+
+
+<div id="snp-viewer-loading-message" style="display: none; " >
+
+  Loading Snip Viz
+
+</div>
+
+<div>
+
+<!--
+
+
+
+		A fixed width is recommended for the div the Snip Viz wil go in
+		since the Snip Viz will not rebuild if the screen is resized
+		and the elements will wrap in an undesirable fashion.
+-->
+
+<!--   The div where the Snip Viz will be created. -->
+<div id="snp-viewer" style="width: 1000px;">
+
+
+</div>
+</div>
+
+</div>
+
+<div id="page-loaded-from-file-system-error" style="display: none; font-size: 16pt;">
+	This script must be run from a web server.<br/>
+	It is unable to read the newick and fasta files from the local filesystem.<br/>
+	This script will now exit.
+</div>
+
+
+</body>
+
+</html>

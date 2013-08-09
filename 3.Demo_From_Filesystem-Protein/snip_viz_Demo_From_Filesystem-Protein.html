@@ -1,0 +1,151 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<!-- The DOCTYPE is required to make this work in Internet Explorer  -->
+
+<head>
+<title>snp_viewer.html</title>
+
+
+ <link REL="stylesheet" TYPE="text/css" HREF="../Snip_Viz_components/css/snp_viewer.css">
+
+
+</head>
+<body  style="" >
+
+In Internet Explorer, at the bottom of the page you have to click "Allow Blocked Content to see the Snip Viz if loading the HTML directly from the file system.
+
+<br/>
+<br/>
+
+
+
+
+<h1>SNP viewer</h1>
+
+<h2>SNP viewer DNA</h2>
+
+<div id="snp-viewer-failed-to-load" style="display: none; " >
+
+  <h2>The SNP viewer has failed to load</h2>
+
+</div>
+
+
+<div id="snp-viewer-loading-message" style="display: none; " >
+
+  Loading SNP viewer
+
+</div>
+
+<div>
+
+<!--
+
+
+
+		A fixed width is recommended for the div the SNP viewer wil go in
+		since the SNP viewer will not rebuild if the screen is resized
+		and the elements will wrap in an undesirable fashion.
+-->
+
+<!--   The div where the SNP viewer will be created. -->
+<div id="snp-viewer" style="width: 1000px;">
+
+
+</div>
+</div>
+
+
+
+
+<script type="text/javascript" src="../Snip_Viz_components/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../Snip_Viz_components/js/jquery-ui-1.8.20.custom.min.js"></script>
+
+
+<script type="text/javascript" src="../Snip_Viz_components/js/wz_jsgraphics.js" ></script >
+
+<script type="text/javascript" src="../Snip_Viz_components/js/wz_tooltip/wz_tooltip.js"></script>
+
+
+
+<!-- actual SNP viewer  -->
+<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_main.js"></script >
+
+<!-- Javascript to be called from the script on the page  -->
+<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_loader_data_object_and_callbacks_provided.js"></script >
+
+<!-- Sample input data for the SNP viewer -->
+<script type="text/javascript" src="js/sample_snp_input_data.js" ></script >
+
+<script type="text/javascript" >
+
+
+//  This javascript relies on the variable "data" created when the script file "../Snip_Viz_components/js/sample_snp_input_data.js" is loaded.
+
+$(document).ready(function(){
+
+
+	//  A function that will be called when the SNP viewer has been successfully created
+
+	var successfullyLoadedCallback = function( ) {
+
+		$("#snp-viewer-loading-message" ).hide();
+
+
+		$("#snp-viewer" ).show();
+
+	}
+
+	//  A function that will be called when the SNP viewer fails to be created
+
+	var failToLoadCallBack = function( ) {
+
+		$("#snp-viewer-loading-message" ).hide();
+
+		$("#snp-viewer-failed-to-load" ).show();
+		$("#snp-viewer" ).hide();
+	}
+
+
+
+	try {
+
+		createSNPViewerDataAndCallBacksProvided( { rootDivId: "snp-viewer",
+								genomeClustering: false,
+								requestType: SNPViewer.getRequestTypeProtein() /* requestType */,
+								successfullyLoadedCallback: function() {
+									successfullyLoadedCallback( );
+
+								},
+								failToLoadCallBack: function() { failToLoadCallBack();  },
+								noDataCallBack: function() { noDataCallBack( );  },
+								delayBeforeLoad: 10 },
+								data /* from "../Snip_Viz_components/js/sample_snp_input_data.js" */ );
+
+				//  The variable "data" is created when the script file "sample_snp_input_data.js" is loaded.
+
+
+	} catch ( t ) {
+
+		//  Most of the code inside the function called runs inside a "setTimeout( )" so most exceptions will be caught inside that and never make it here
+
+
+		var stackTrace = t.stack;
+
+		failToLoadCallBack( );
+
+		throw t;
+	}
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

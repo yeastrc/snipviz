@@ -1,0 +1,22 @@
+
+
+Advanced Snip Viz Items
+
+1.  If there is a need to run code after the Snip Viz has been successfully created,
+    a call back function can be created and passed to the Snip Viz creation function.
+    That function will be called when the Snip Viz has been successfully created.
+
+	An example of this is 7.retrieve_fasta_sequences_from_server_and_call_backs/snip_viz_fasta_only.html
+
+
+2.	If the Snip Viz (or the div it is created in) needs to be removed from the page with
+	Javascript code, please use one of the following methods:
+
+	a.  Call:   SNPViewer.deleteSNPViewerFromRootDivId( /* rootDivId */ "rootDivId"   )
+	b.	Use the jQuery function empty() function on the div the Snip Viz is created in or a parent element
+
+	If the div is removed using the HTML innerHTML method, the attached Snip Viz data will not be removed
+	and will continue to consume memory in the browser.
+
+	The Snip Viz is removed automatically if the user navigates to a different page.
+

@@ -1,0 +1,23 @@
+
+The Snip Viz is written in Javascript.
+
+
+
+The Snip Viz can be created in multiple divs on the same page (with different data for each one).
+
+
+
+Important Items:
+
+1.  The div the Snip Viz is created in must not be hidden with "display:none" at the time
+       the Snip Viz is created.  This included all parent divs or other elements.
+       It can be hidden with "visibility:hidden".
+
+2.  The bulk of the code to create the Snip Viz runs on a delay (inside a setTimeout).
+	This means that the Snip Viz will be created after other code is done.
+	If other code is triggered by "onload" or "$(document).ready(function(){...})"
+	The Snip Viz code will run after all of that.
+	There are ways to deal with this.  See the "3.Advanced_Items.txt" file.
+
+3.	If the Snip Viz (or the div it is created in) needs to be removed from the page with
+	Javascript code, please see the "3.Advanced_Items.txt" file.
