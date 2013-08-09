@@ -1,10 +1,9 @@
 
 Graphical User Interface
 
-See the bottom for explanations
-
 Basic Functionality
-	A screenshot of the SnipViz GUI is shown in Figure 1.
+
+	A screenshot of the SnipViz GUI is shown in Figure 1 (file 4.User_Interface_Figure_1.png).
 	At the top of the interface is a graphical representation of the whole sequence with red bars
 	indicating locations of sequence variation. In this representation is a dashed box that represents
 	the part of the sequence currently being displayed below. Users may click anywhere in this sequence
@@ -16,27 +15,58 @@ Basic Functionality
 	To the right the section of the sequences corresponding to the currently-viewed window are displayed.
 	Beneath the sequences, users may click the arrows to page left or right through the sequences.
 
+		Figure 1 Caption: (file 4.User_Interface_Figure_1.png)
+
+		A screen capture of SnipViz displaying the DNA sequence of a gene for 22 different strains of S. cerevisiae.
+		The top rectangle is a graphical representation of the whole sequence (1,731 nucleotides long) that serves
+		as a whole-sequence navigation bar. The dashed box indicates the currently-viewed segment of the sequence
+		and may be clicked and dragged to the desired location in the sequence. The red bars indicate locations
+		of variation in the sequence among all the strains. The bottom left displays a hierarchically clustered
+		list of the sequence labels, and the bottom right displays the sequences.
+		The blue bars highlight columns in the sequence display where variation occurs.
+
 Sequence Highlighting
-	Users may click the labels to toggle highlighting of one or more sequences. (Figure 2)
+
+	Users may click the labels to toggle highlighting of one or more sequences. (Figure 2 (file 4.User_Interface_Figure_2.png))
 	If highlighted, a sequence will have its colors inverted to emphasize the sequence and make sequence
 	variation among highlighted sequences easier to discern. If more than one sequence is highlighted,
 	the indicators of sequence variation (in the whole-sequence representation above the sequences and
 	the column highlighting in the sequence window) will only indicate variation among the highlighted sequences.
 
+		Figure 2 Caption: (file 4.User_Interface_Figure_2.png)
+
+		A screen capture of SnipViz illustrating the effect of highlighting specific sequences.
+		In this example, the sequence for a protein from 22 differenst strains of S. cerevisiae are shown.
+		The user has clicked the names of highlighted sequences to enable highlighting of those sequences.
+		The red lines in the sequence navigation bar and blue column highlights of the sequence now indicate
+		locations of sequence variability only among the highlighted sequences.
+
 Very Long Sequences
+
 	Because the dashed box in the whole-sequence window represents the currently-viewed segment of the sequence,
 	and because that segment is a fixed size (e.g., 50 nucleotides), the width of the dash box will change based
 	on the length of the whole sequence. As the overall sequence gets longer, the dashed box representing the segment
 	of the sequence being shown will become narrower. If the sequence is long enough, the box representing 50 positions
 	in that sequence will be so narrow that it will not be a useful element of the GUI.
 	To solve this problem, SnipViz will detect when the dashed box would be too narrow and employ a
-	second level graphical sequence representation. (Figure 3)
+	second level graphical sequence representation. (Figure 3 (file 4.User_Interface_Figure_3.png))
 	When this occurs, the top sequence representation will contain a dashed box that indicates which segment of the sequence
 	is represented by the sequence representation below it. This second sequence representation will itself contain a dashed
 	box that indicates which segment of the sequence is being displayed in the sequence viewer area below.
 	This method ensures that even extremely long sequences may be graphically represented and simply navigated.
 
+		Figure 3 Caption: (file 4.User_Interface_Figure_3.png)
+
+		A screen capture of SnipViz illustrating the effect of viewing a very long sequences;
+		in this case 22 separate DNA sequences each 14,733 nucleotides in length.
+		A second sequence navigation bar has been created at the top, such that the dashed box
+		in the top bar indicates the region of the sequence shown in the second bar,
+		and the dashed box in the second bar indicates the region of the sequence being displayed below.
+		Both boxes may be clicked and dragged in their respective sequence navigation bars
+		to display the DNA sequence at the desired location.
+
 Indicators of Variation
+
 	As previously mentioned, the whole-sequence representation above the sequences contains red lines that serve as indicators
 	of locations of sequence variation among all of the sequences or among the currently-highlighted sequences.
 	Both the shade of red and the height of the line contain information.
