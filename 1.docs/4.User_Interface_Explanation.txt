@@ -1,0 +1,62 @@
+
+Graphical User Interface
+
+See the bottom for explanations
+
+Basic Functionality
+	A screenshot of the SnipViz GUI is shown in Figure 1.
+	At the top of the interface is a graphical representation of the whole sequence with red bars
+	indicating locations of sequence variation. In this representation is a dashed box that represents
+	the part of the sequence currently being displayed below. Users may click anywhere in this sequence
+	representation to center the currently-viewed window on that location, or click and drag the dashed
+	box to move the window.
+	Beneath the whole sequence representation is the display of the sequences, themselves.
+	To the left are the labels supplied for the sequences from the FASTA file and, optionally,
+	the dendrogram representing the hierarchical clustering of the sequences from a Newick file.
+	To the right the section of the sequences corresponding to the currently-viewed window are displayed.
+	Beneath the sequences, users may click the arrows to page left or right through the sequences.
+
+Sequence Highlighting
+	Users may click the labels to toggle highlighting of one or more sequences. (Figure 2)
+	If highlighted, a sequence will have its colors inverted to emphasize the sequence and make sequence
+	variation among highlighted sequences easier to discern. If more than one sequence is highlighted,
+	the indicators of sequence variation (in the whole-sequence representation above the sequences and
+	the column highlighting in the sequence window) will only indicate variation among the highlighted sequences.
+
+Very Long Sequences
+	Because the dashed box in the whole-sequence window represents the currently-viewed segment of the sequence,
+	and because that segment is a fixed size (e.g., 50 nucleotides), the width of the dash box will change based
+	on the length of the whole sequence. As the overall sequence gets longer, the dashed box representing the segment
+	of the sequence being shown will become narrower. If the sequence is long enough, the box representing 50 positions
+	in that sequence will be so narrow that it will not be a useful element of the GUI.
+	To solve this problem, SnipViz will detect when the dashed box would be too narrow and employ a
+	second level graphical sequence representation. (Figure 3)
+	When this occurs, the top sequence representation will contain a dashed box that indicates which segment of the sequence
+	is represented by the sequence representation below it. This second sequence representation will itself contain a dashed
+	box that indicates which segment of the sequence is being displayed in the sequence viewer area below.
+	This method ensures that even extremely long sequences may be graphically represented and simply navigated.
+
+Indicators of Variation
+	As previously mentioned, the whole-sequence representation above the sequences contains red lines that serve as indicators
+	of locations of sequence variation among all of the sequences or among the currently-highlighted sequences.
+	Both the shade of red and the height of the line contain information.
+	The height of the line indicates the number of positions represented by that line that contain variation.
+	Because the width of the graphical whole-sequence representation may contain fewer pixels than the number of positions in the sequence,
+	each line may represent more than one position in the sequence. A taller line indicates more relative variation at the
+	represented position in the sequence than a shorter line.
+	The shade of red is meant to indicate the significance of the variation at a given position, with darker red indicating
+	more significant variation. In the case of DNA sequences, there are two shades of red: pale and dark.
+	Pale red indicates that all variation in that position result in the same amino acid being encoded (silent mutations).
+	Dark red indicates that there is at least one substitution at that position among all the sequences that results in a
+	different encoded amino acid.  In the case of protein sequences, the shade of red is determined by a calculation using
+	the BLOSUM 80[4] amino acid substitution matrix. For all positions with sequence variation, a score is calculated by
+	comparing all amino acids at that position against all other amino acids at that position and summing the BLOSUM 80
+	substitution values. The resulting values are used to linearly scale the intensity of red in the indicator line between
+	a pale and dark shade of red.
+	The main sequence viewing area also contains indicators of location of sequence variability.
+	These appear as a shade of blue that highlights specific columns in the sequence and appears as an indicator block above the column.
+	The shade of blue is determined using the same logic as the shade of red in the indicator lines described above.
+
+
+
+
