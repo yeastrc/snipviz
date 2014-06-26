@@ -1,21 +1,38 @@
 
 Advanced Snip Viz Items
+    
 
-1.  If there is a need to run code after the Snip Viz has been successfully created,
+1.  jQuery and/or jQuery-ui already on the page
+
+    Do not include jquery or jquery-ui a second time onto the page.
+
+    If jquery and or jquery-ui are already in use, please refer to the table below for compatible
+    between Snip Viz and jquery and jquery-ui versions:
+    
+    		Min. Version	Max. Tested Version
+    jquery	1.5.2		2.1.1
+    jquery-ui	1.7.0		1.10.4
+
+    If your existing version of jquery or jquery-ui are below the minimum version listed above, you
+    will need to upgrade them for Snip Viz to function correctly. The maximum tested version listed
+    above represent the most current versions at the time of this writing and Snip Viz was found to
+    be compatible.
+
+
+2.  If there is a need to run code after the Snip Viz has been successfully created,
     a call back function can be created and passed to the Snip Viz creation function.
     That function will be called when the Snip Viz has been successfully created.
 
-	An example of this is 2.Demo_From_Filesystem-DNA/snip_viz_Demo_From_Filesystem-DNA.html
+    An example of this is 2.Demo_From_Filesystem-DNA/snip_viz_Demo_From_Filesystem-DNA.html
 
 
-2.	If the Snip Viz (or the div it is created in) needs to be removed from the page with
-	Javascript code, please use one of the following methods:
+3.  If the Snip Viz (or the div it is created in) needs to be removed from the page with
+    Javascript code, please use one of the following methods:
 
-	a.  Call:   SNPViewer.deleteSNPViewerFromRootDivId( /* rootDivId */ "rootDivId"   )
-	b.	Use the jQuery function empty() function on the div the Snip Viz is created in or a parent element
+        a.  Call:   SNPViewer.deleteSNPViewerFromRootDivId( /* rootDivId */ "rootDivId"   )
+        b.  Use the jQuery function empty() function on the div the Snip Viz is created in or a parent element
 
-	If the div is removed using the HTML innerHTML method, the attached Snip Viz data will not be removed
-	and will continue to consume memory in the browser.
+    If the div is removed using the HTML innerHTML method, the attached Snip Viz data will not be removed
+    and will continue to consume memory in the browser.
 
-	The Snip Viz is removed automatically if the user navigates to a different page.
-
+    The Snip Viz is removed automatically if the user navigates to a different page.

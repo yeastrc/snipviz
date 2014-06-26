@@ -2,7 +2,6 @@
 The Snip Viz is written in Javascript.
 
 
-
 The Snip Viz can be created in multiple divs on the same page (with different data for each one).
 
    Examples of Snip Viz implementations can be viewed at http://www.yeastrc.org/snipviz/

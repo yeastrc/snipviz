@@ -3,8 +3,9 @@ If you have a fasta file and possibly a newick file on a web server, creating a 
 
 Using custom attributes in the HTML to specify the location(s) of the file(s)
 the following is put in the HTML:
-
- WARNING:  This div and it's parents cannot be hidden with "display: none;" when the page loads
+ 
+!!IMPORTANT:  If jquery or jquery-ui are already included on the page, see the section in the documentation file 
+             "3.Advanced_Items.txt" on jquery and do not add them to the page.as directed below
 
 For fasta and newick:
 
@@ -33,11 +34,15 @@ At the top of the HTML in the "<head>" section the following is needed:
 
 
 
-At the bottom of the HTML before the "</body>" tag the folowing is needed:
+The necessary Javascript files need to be loaded with the following HTML. We recommend putting this
+at the bottom of the HTML before the "</body>" tag to speed page loading. However, SnipViz will
+function correctly if the <script> tags are placed in the <head> of the page instead, which may
+be necessary if your site already employs one or more of the necessary Javascript libraries (e.g.
+jquery).
+
 
 	<script type="text/javascript" src="../Snip_Viz_components/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../Snip_Viz_components/js/jquery-ui-1.8.20.custom.min.js"></script>
-
 
 	<script type="text/javascript" src="../Snip_Viz_components/js/wz_jsgraphics.js" ></script >
 
@@ -49,7 +54,7 @@ At the bottom of the HTML before the "</body>" tag the folowing is needed:
 	<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_main.js"></script >
 
 	<!-- Javascript to set up the SNP viewer  -->
-	<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_loader_data_object_provided.js"></script >
+	<script type="text/javascript" src="../Snip_Viz_components/js/snip_viz_loader_data_object_and_callbacks_provided.js"></script >
 
 
 	<!-- Javascript to be called from the script in "../Snip_Viz_components/js/snp_viewer_very_simple_loader.js" and
