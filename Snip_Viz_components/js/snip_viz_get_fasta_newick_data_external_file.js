@@ -64,6 +64,7 @@ var getDataCreateSNPViewer = function( config, inputFilenames ) {
 				type: "GET",
 				url: url,
 				async: false,
+				dataType: "text",
 				statusCode: {
 				404: function() {
 				alert("data file not found: " + url );
@@ -88,6 +89,7 @@ var getDataCreateSNPViewer = function( config, inputFilenames ) {
 			type: "GET",
 			url: fastaURL,
 			async: false,
+			dataType: "text",
 			statusCode: {
 				404: function() {
 						alert("data file not found: " + url );
